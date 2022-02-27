@@ -24,3 +24,4 @@ compl_itaG <- gtrendsR::gtrends(keyword = c("soros rettiliano", "5g uccide", "ce
 view(compl_itaG)
 
 
+
