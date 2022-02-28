@@ -35,8 +35,10 @@ test2_listaNera <- gtrends(keyword = c("Generazione Identitaria","Movimento Patr
 
 plot()
 
-ggplot(test2_listaNera$interest_over_time, aes(x=date, y=hits)) +
-  geom_point() +
-  geom_smooth(method=lm , color="red", se=FALSE) +
-  theme_bw()
+ggplot(nuovo_ordine$interest_over_time, aes(x=date, y=hits)) +
+  geom_line() 
 
+nuovo_ordine <- gtrends(keyword = "Nuovo ordine nazionale",
+                        geo = "IT",
+                        time = "2020-01-01 2022-02-28"
+                        )
