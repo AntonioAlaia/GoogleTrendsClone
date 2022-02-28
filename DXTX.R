@@ -18,7 +18,7 @@ divideR <- function(x,n) split(x, cut(seq_along(x), n, labels = FALSE))
 
 dvd_listaNera <- divideR(scrap_listaNera, 7)
 
-as.list(dvd_listaNera[1]) 
+dvd_listaNera[2]
 
 
 
@@ -27,3 +27,16 @@ test1_listaNera <- gtrends(keyword = c("Forza Nuova","CasaPound Italia","Comunit
 view(test1_listaNera$related_queries)
 
 (test1_listaNera$interest_over_time)
+
+test2_listaNera <- gtrends(keyword = c("Generazione Identitaria","Movimento Patria Nostra", "Unione per il Socialismo Nazionale – R.S.I.","Azione Identitaria"),
+                           geo = "IT",
+                           time = "2020-01-01 2022-02-28"
+)
+
+plot()
+
+ggplot(test2_listaNera$interest_over_time, aes(x=date, y=hits)) +
+  geom_point() +
+  geom_smooth(method=lm , color="red", se=FALSE) +
+  theme_bw()
+
