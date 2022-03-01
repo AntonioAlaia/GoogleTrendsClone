@@ -28,7 +28,7 @@ view(test1_listaNera$related_queries)
 
 (test1_listaNera$interest_over_time)
 
-test2_listaNera <- gtrends(keyword = c("Generazione Identitaria","Movimento Patria Nostra", "Unione per il Socialismo Nazionale – R.S.I.","Azione Identitaria"),
+test2_listaNera <- gtrends(keyword = c("Generazione Identitaria","Movimento Patria Nostra","Azione Identitaria"),
                            geo = "IT",
                            time = "2020-01-01 2022-02-28"
 )
@@ -42,3 +42,12 @@ nuovo_ordine <- gtrends(keyword = "Nuovo ordine nazionale",
                         geo = "IT",
                         time = "2020-01-01 2022-02-28"
                         )
+
+plot(test1_listaNera)
+
+
+
+ggplot(test1_listaNera$interest_over_time, aes(x=date, y=hits)) +
+  geom_line() 
+
+
