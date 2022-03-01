@@ -18,7 +18,8 @@ divideR <- function(x,n) split(x, cut(seq_along(x), n, labels = FALSE))
 
 dvd_listaNera <- divideR(scrap_listaNera, 7)
 
-dvd_listaNera[2]
+dvd_listaNera
+dvd_listaNera$'3'
 
 
 
@@ -33,21 +34,18 @@ test2_listaNera <- gtrends(keyword = c("Generazione Identitaria","Movimento Patr
                            time = "2020-01-01 2022-02-28"
 )
 
-plot()
 
-ggplot(nuovo_ordine$interest_over_time, aes(x=date, y=hits)) +
-  geom_line() 
-
-nuovo_ordine <- gtrends(keyword = "Nuovo ordine nazionale",
-                        geo = "IT",
-                        time = "2020-01-01 2022-02-28"
-                        )
-
-plot(test1_listaNera)
+test3_listaNera <- gtrends(keyword = dvd_listaNera$'3',
+                           geo = "IT",
+                           time = "2020-01-01 2022-02-28"
+)
 
 
 
-ggplot(test1_listaNera$interest_over_time, aes(x=date, y=hits)) +
-  geom_line() 
-
-
+for (i in seq_along(1:7)) {
+  prova <- gtrends(keyword = dvd_listaNera[i],
+                                          geo = "IT",
+                                          time = "2020-01-01 2022-02-28"
+  )
+  
+}
