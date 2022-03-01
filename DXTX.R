@@ -40,12 +40,23 @@ test3_listaNera <- gtrends(keyword = dvd_listaNera$'3',
                            time = "2020-01-01 2022-02-28"
 )
 
+test4_listaNera <- gtrends(keyword = dvd_listaNera$'4',
+                           geo = "IT",
+                           time = "2020-01-01 2022-02-28"
+)
 
+test5_listaNera <- gtrends(keyword = dvd_listaNera$'5',
+                           geo = "IT",
+                           time = "2020-01-01 2022-02-28"
+)
 
-for (i in seq_along(1:7)) {
-  prova <- gtrends(keyword = dvd_listaNera[i],
-                                          geo = "IT",
-                                          time = "2020-01-01 2022-02-28"
-  )
-  
-}
+test6_listaNera <- gtrends(keyword = dvd_listaNera$'6',
+                           geo = "IT",
+                           time = "2020-01-01 2022-02-28"
+)
+
+test7_listaNera <- gtrends(keyword = dvd_listaNera$'7',
+                           geo = "IT",
+                           time = "2020-01-01 2022-02-28"
+)
+
