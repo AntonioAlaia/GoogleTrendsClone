@@ -83,9 +83,5 @@ group_2_onlytime <- gtrends(keyword = DATASET$'2',
                             
 )
 
-
-merge <- rbind(group_1_onlytime, group_2_onlytime)
-
-?rbind
-
+##NOT SOLVED
 
