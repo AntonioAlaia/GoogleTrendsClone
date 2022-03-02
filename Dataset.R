@@ -27,9 +27,4 @@ DATASET <- DATASET[-c(2, 5, 13, 14, 15, 16, 21, 28, 30, 33, 35, 38,
 DATASET <- divideR(DATASET, 9)
 
 
-
-
-
-DATASET <- as.data.frame(DATASET)
-
-
+##TO BE CONTINUED
