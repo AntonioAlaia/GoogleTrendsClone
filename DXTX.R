@@ -83,5 +83,5 @@ group_2_onlytime <- gtrends(keyword = DATASET$'2',
                             
 )
 
-##NOT SOLVED
+##NOT SOLVED!!!
 
