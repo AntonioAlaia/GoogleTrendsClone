@@ -16,4 +16,4 @@ _work in progress ⚠️_
 
 ### References:
 
--https://infodemiology.jmir.org/2021/1/e29929/
+- https://infodemiology.jmir.org/2021/1/e29929/
