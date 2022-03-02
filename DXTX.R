@@ -2,6 +2,7 @@ library(gtrendsR)
 library(tidyverse)
 library(rvest)
 
+##Data Import and Preparation with gtrendsR
 
 lista_nera <- "https://www.patriaindipendente.it/persone-e-luoghi/inchieste/la-galassia-nera-su-facebook/"
 
@@ -14,22 +15,25 @@ scrap_listaNera <- read_html(here::here("ListaNera.html")) %>%
 
 view(scrap_listaNera)
 
+
+#Creating function to divide the list in smallest possible to reach 5 x group
+
 divideR <- function(x,n) split(x, cut(seq_along(x), n, labels = FALSE)) 
 
 dvd_listaNera <- divideR(scrap_listaNera, 7)
 
-dvd_listaNera
-dvd_listaNera$'3'
+view(dvd_listaNera)
+
+
+#Using gtrendsR to get the queries
+
+test1_listaNera <- gtrends(keyword = dvd_listaNera$'1', 
+                           geo = "IT",
+                           time = "2020-01-01 2022-02-28")
 
 
 
-test1_listaNera <- gtrends(keyword = c("Forza Nuova","CasaPound Italia","Comunità militanti","Lealtà – Azione"), geo = "IT", time = "2020-01-01 2022-02-28")
-
-view(test1_listaNera$related_queries)
-
-(test1_listaNera$interest_over_time)
-
-test2_listaNera <- gtrends(keyword = c("Generazione Identitaria","Movimento Patria Nostra","Azione Identitaria"),
+test2_listaNera <- gtrends(keyword = dvd_listaNera$'2',
                            geo = "IT",
                            time = "2020-01-01 2022-02-28"
 )
