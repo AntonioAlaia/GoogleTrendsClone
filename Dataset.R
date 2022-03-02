@@ -20,3 +20,13 @@ LIST <- as.data.frame(LIST)
 DATASET <- sapply(LIST, unique)
 
 view(DATASET)
+
+##more cleaning
+
+DATASET <- DATASET[-c(2, 5, 13, 14, 15, 16, 21, 28, 30, 33, 35, 38, 
+                          39, 47,49,50,57,58,62,65:111)]
+
+DATASET <- as.data.frame(DATASET)
+
+
+
