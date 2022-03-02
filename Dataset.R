@@ -15,9 +15,7 @@ LIST <- c(list_1, list_2, list_3,list_4,list_5,list_6,list_7)
 
 view(LIST)
 
-LIST <- as.data.frame(LIST)
-
-DATASET <- sapply(LIST, unique)
+DATASET <- unique(LIST)
 
 view(DATASET)
 
@@ -26,7 +24,12 @@ view(DATASET)
 DATASET <- DATASET[-c(2, 5, 13, 14, 15, 16, 21, 28, 30, 33, 35, 38, 
                           39, 47,49,50,57,58,62,65:111)]
 
-DATASET <- as.data.frame(DATASET)
+DATASET <- divideR(DATASET, 9)
 
+
+
+
+
+DATASET <- as.data.frame(DATASET)
 
 
