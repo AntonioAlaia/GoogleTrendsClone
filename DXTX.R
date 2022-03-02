@@ -64,3 +64,28 @@ test7_listaNera <- gtrends(keyword = dvd_listaNera$'7',
                            time = "2020-01-01 2022-02-28"
 )
 
+###
+
+#coming back from Dataset.R
+
+
+group_1_onlytime <- gtrends(keyword = DATASET$'1',
+                           geo = "IT",
+                           time = "2020-01-01 2022-02-28",
+                           onlyInterest = TRUE
+                           
+)
+
+group_2_onlytime <- gtrends(keyword = DATASET$'2',
+                            geo = "IT",
+                            time = "2020-01-01 2022-02-28",
+                            onlyInterest = TRUE
+                            
+)
+
+
+merge <- rbind(group_1_onlytime, group_2_onlytime)
+
+?rbind
+
+
