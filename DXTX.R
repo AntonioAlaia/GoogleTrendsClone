@@ -64,6 +64,12 @@ test7_listaNera <- gtrends(keyword = dvd_listaNera$'7',
                            time = "2020-01-01 2022-02-28"
 )
 
+test_8_listaNera <- gtrends(keyword = c("8chan","8kun","pillola rossa","olocausto italia","grande sostituzione"),
+                            geo = "IT",
+                            time = "2020-01-01 2022-02-28"
+)
+
+
 ###
 
 #coming back from Dataset.R
@@ -134,16 +140,12 @@ group_data6 <- as.data.frame(group_6_onlytime$interest_over_time)
 
 group_data7 <- as.data.frame(group_7_onlytime$interest_over_time)
 
+group_data8 <- as.data.frame(test_8_listaNera$interest_over_time)
 
-DATASET_TOTAL <- rbind(group_data1, group_data2, group_data3, group_data4, group_data5, group_data6, group_data7)
+DATASET_TOTAL <- rbind(group_data1, group_data2, group_data3, group_data4, group_data5, group_data6, group_data7, group_data8)
 
 DATASET_TOTAL
 
-view(trial)
 
-view(x)
-
-ggplot(x, aes(x=date, y=hits)) +
-  geom_point() +
-  theme_bw()
+##
 

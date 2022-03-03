@@ -28,3 +28,6 @@ DATASET <- divideR(DATASET, 9)
 
 
 ##TO BE CONTINUED
+
+
+DATASET_TOTAL #to be cleaned and you have to add keywords from podcast
