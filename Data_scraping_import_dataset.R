@@ -62,4 +62,22 @@ test8_listaNera <- gtrends(keyword = c("8chan","8kun","pillola rossa","olocausto
                            geo = "IT",
                            time = "2020-01-01 2022-02-28"
 )
+
+
+
+list_1 <- test1_listaNera$related_queries$value
+list_2 <- test2_listaNera$related_queries$value
+list_3 <- test3_listaNera$related_queries$value
+list_4 <- test4_listaNera$related_queries$value
+list_5 <- test5_listaNera$related_queries$value
+list_6 <- test6_listaNera$related_queries$value
+list_7 <- test7_listaNera$related_queries$value
+
+LIST <- c(list_1, list_2, list_3,list_4,list_5,list_6,list_7)
+
+view(LIST)
+
+DATASET <- unique(LIST)
+
+view(DATASET)
                             
