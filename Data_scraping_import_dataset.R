@@ -15,3 +15,13 @@ scrap_listaNera <- read_html(here::here("ListaNera.html")) %>%
   html_text(trim = TRUE)
 
 view(scrap_listaNera)
+
+
+#Creating function to divide the list in smallest possible to reach 5 x group: we have to do this because gtrendsR doesn't 
+#allow us to look for more than 5 keywords at once
+
+divideR <- function(x,n) split(x, cut(seq_along(x), n, labels = FALSE)) 
+
+dvd_listaNera <- divideR(scrap_listaNera, 7)
+
+view(dvd_listaNera)
