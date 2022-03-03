@@ -144,5 +144,28 @@ group_7_onlytime <- gtrends(keyword = DATASET$'7',
                             
 )
 
+group_data1 <- as.data.frame(group_1_onlytime$interest_over_time)
+group_data2 <- as.data.frame(group_2_onlytime$interest_over_time)
+group_data3 <- as.data.frame(group_3_onlytime$interest_over_time)
+group_data4 <- as.data.frame(group_4_onlytime$interest_over_time)
+group_data5 <- as.data.frame(group_5_onlytime$interest_over_time)
+group_data6 <- as.data.frame(group_6_onlytime$interest_over_time)
+group_data7 <- as.data.frame(group_7_onlytime$interest_over_time)
+group_data8 <- as.data.frame(test8_listaNera$interest_over_time)
+
+DATASET_TOTAL <- rbind(group_data1, group_data2, group_data3, group_data4, group_data5, group_data6, group_data7, group_data8)
+
+
+
+view(DATASET_TOTAL)
+
+
+#This is our complete dataset, now we have to fix it for the analysis
+
+
+##
+
+
+
 
                             
