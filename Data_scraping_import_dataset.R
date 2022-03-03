@@ -80,4 +80,19 @@ view(LIST)
 DATASET <- unique(LIST)
 
 view(DATASET)
+
+##more cleaning
+
+DATASET <- DATASET[-c(2, 3,4,  5, 13, 14, 15, 16, 21, 28, 30, 33, 35, 38, 
+                      39, 47, 48,49,50,57,58,62,65:111)]
+
+
+view(DATASET)
+
+DATASET <- divideR(DATASET, 9)
+
+
+
+
+
                             
