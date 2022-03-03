@@ -95,4 +95,54 @@ DATASET <- divideR(DATASET, 9)
 
 
 
+group_1_onlytime <- gtrends(keyword = DATASET$'1',
+                            geo = "IT",
+                            time = "2020-01-01 2022-02-28",
+                            onlyInterest = TRUE
+                            
+)
+
+group_2_onlytime <- gtrends(keyword = DATASET$'2',
+                            geo = "IT",
+                            time = "2020-01-01 2022-02-28",
+                            onlyInterest = TRUE
+                            
+)
+
+group_3_onlytime <- gtrends(keyword = DATASET$'3',
+                            geo = "IT",
+                            time = "2020-01-01 2022-02-28",
+                            onlyInterest = TRUE
+                            
+)
+
+group_4_onlytime <- gtrends(keyword = DATASET$'4',
+                            geo = "IT",
+                            time = "2020-01-01 2022-02-28",
+                            onlyInterest = TRUE
+                            
+)
+
+group_5_onlytime <- gtrends(keyword = DATASET$'5',
+                            geo = "IT",
+                            time = "2020-01-01 2022-02-28",
+                            onlyInterest = TRUE
+                            
+)
+
+group_6_onlytime <- gtrends(keyword = DATASET$'6',
+                            geo = "IT",
+                            time = "2020-01-01 2022-02-28",
+                            onlyInterest = TRUE
+                            
+)
+
+group_7_onlytime <- gtrends(keyword = DATASET$'7',
+                            geo = "IT",
+                            time = "2020-01-01 2022-02-28",
+                            onlyInterest = TRUE
+                            
+)
+
+
                             
