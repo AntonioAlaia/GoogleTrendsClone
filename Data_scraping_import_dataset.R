@@ -64,7 +64,6 @@ test8_listaNera <- gtrends(keyword = c("8chan","8kun","pillola rossa","olocausto
 )
 
 
-
 list_1 <- test1_listaNera$related_queries$value
 list_2 <- test2_listaNera$related_queries$value
 list_3 <- test3_listaNera$related_queries$value
@@ -83,16 +82,11 @@ view(DATASET)
 
 ##more cleaning
 
-DATASET <- DATASET[-c(2, 3,4,  5, 13, 14, 15, 16, 21, 28, 30, 33, 35, 38, 
-                      39, 47, 48,49,50,57,58,62,65:111)]
-
+DATASET <- DATASET[-c(1,3,5, 13,32,35,37,45,46,42,49,58,59,62,65:111)]
 
 view(DATASET)
 
-DATASET <- divideR(DATASET, 9)
-
-
-
+DATASET <- divideR(DATASET, 10)
 
 
 group_1_onlytime <- gtrends(keyword = DATASET$'1',
@@ -143,6 +137,26 @@ group_7_onlytime <- gtrends(keyword = DATASET$'7',
                             onlyInterest = TRUE
                             
 )
+group_8_onlytime <- gtrends(keyword = DATASET$'8',
+                            geo = "IT",
+                            time = "2020-01-01 2022-02-28",
+                            onlyInterest = TRUE
+                            
+)
+
+group_9_onlytime <- gtrends(keyword = DATASET$'9',
+                            geo = "IT",
+                            time = "2020-01-01 2022-02-28",
+                            onlyInterest = TRUE
+                            
+)
+
+group_10_onlytime <- gtrends(keyword = DATASET$'10',
+                            geo = "IT",
+                            time = "2020-01-01 2022-02-28",
+                            onlyInterest = TRUE
+                            
+)
 
 group_data1 <- as.data.frame(group_1_onlytime$interest_over_time)
 group_data2 <- as.data.frame(group_2_onlytime$interest_over_time)
@@ -152,8 +166,12 @@ group_data5 <- as.data.frame(group_5_onlytime$interest_over_time)
 group_data6 <- as.data.frame(group_6_onlytime$interest_over_time)
 group_data7 <- as.data.frame(group_7_onlytime$interest_over_time)
 group_data8 <- as.data.frame(test8_listaNera$interest_over_time)
+group_data8.2 <-  as.data.frame(group_8_onlytime$interest_over_time)
+group_data.9 <-  as.data.frame(group_9_onlytime$interest_over_time)
+group_data.10 <-  as.data.frame(group_10_onlytime$interest_over_time) 
 
-DATASET_TOTAL <- rbind(group_data1, group_data2, group_data3, group_data4, group_data5, group_data6, group_data7, group_data8)
+DATASET_TOTAL <- rbind(group_data1, group_data2, group_data3, group_data4, group_data5,
+                       group_data6, group_data7, group_data8, group_data8.2, group_data.9, group_data.10)
 
 
 
