@@ -15,8 +15,7 @@ The starting list can be obtained by scraping an already existing map made by [p
 The best way to import a dataset with all trending searches on Google is by using [Google Trends](https://trends.google.com/trends/) and, because we're exclusively using R to work on this project, we employ `gtrendsR` package [(more info...)](https://github.com/PMassicotte/gtrendsR).
 This package allows us to get a dataset with different variables: `geo`, `time`, `keywords` and `onlyInterest` (a boolean that allows you to call ONLY the `interest_over_time` or not).
 
-
-_work in progress ⚠️_
+⚠️
 
 
 ### References:
