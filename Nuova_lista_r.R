@@ -3,7 +3,6 @@ library(tidyverse)
 library(stringr)
 library(gtrendsR)
 
-https://www.patriaindipendente.it/progetto-facebook/lista_a.html
 
 nuova_lista <- "https://www.patriaindipendente.it/progetto-facebook/lista_a.html"
 
@@ -39,20 +38,6 @@ for (i in 1:446) {
 }
 
 view(trends)
-
-
-# Merging with previous dataset and cleaning
-
-FINAL <- rbind(DATASET_TOTAL, trends)
-
-FINAL$hits <- as.numeric(as.character(FINAL$hits))
-
-FINAL <- FINAL[FINAL$hits != 0 & FINAL$hits != 1 
-                           & FINAL$hits != 2 & FINAL$hits != 3
-                           & FINAL$hits != 4 & FINAL$hits != 5, ] 
-FINAL <- na.omit(FINAL)
-
-
 
 
 
