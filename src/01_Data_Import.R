@@ -4,6 +4,7 @@ library(gtrendsR)
 library(tidyverse)
 library(rvest)
 library(stringr)
+library(rio)
 
 ##Data Import and Preparation with gtrendsR
 #This is the starting list I've found online on "patriaindipendente.it", from here we are starting to obtain the related queries
@@ -85,7 +86,7 @@ view(DATASET)
 
 ##more cleaning
 
-DATASET <- DATASET[-c(1,3,5, 13,32,35,37,45,46,42,49,58,59,62,65:111)]
+DATASET <- DATASET[-c(2,3,6,32,39,41,44,46,48,49,57,58,61,64:110)]
 
 view(DATASET)
 
@@ -173,15 +174,15 @@ group_data8.2 <-  as.data.frame(group_8_onlytime$interest_over_time)
 group_data.9 <-  as.data.frame(group_9_onlytime$interest_over_time)
 group_data.10 <-  as.data.frame(group_10_onlytime$interest_over_time) 
 
-DATASET_TOTAL <- rbind(group_data1, group_data2, group_data3, group_data4, group_data5,
+DATASET_1 <- rbind(group_data1, group_data2, group_data3, group_data4, group_data5,
                        group_data6, group_data7, group_data8, group_data8.2, group_data.9, group_data.10)
 
 
 
-view(DATASET_TOTAL)
+view(DATASET_1)
 
 
-
+export(DATASET_1, "Dataset_1.csv")
 
 
 
