@@ -58,3 +58,4 @@ install.packages("ggpubr")
 library(ggpubr)
 
 cor.test(DATASET_TOTAL$date, DATASET_TOTAL$hits, method=c("pearson", "kendall", "spearman"))
+
