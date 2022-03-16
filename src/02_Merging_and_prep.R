@@ -2,6 +2,7 @@ library(gtrendsR)
 library(tidyverse)
 library(rvest)
 library(stringr)
+library(rio)
 
 
 #I found a new list and I added some new contents, here's the new dataset
@@ -20,59 +21,55 @@ view(scrap_nuovaLista)
 
 new_list <- unique(scrap_nuovaLista)
 
-scrap_nuovaLista
+view(scrap_nuovaLista)
+
 new_list <- new_list[-c(1)]
 
 view(new_list)
 
-
 #For loop for new dataset
 
-trends <- vector()
+DATASET_2 <- vector()
 v <- vector()
-
 
 for (i in 1:446) {
   tryCatch({v <- gtrendsR::gtrends(keyword = new_list[i], geo = "IT", time = "2020-01-01 2022-02-28", onlyInterest = TRUE)},
            error = function(e){})
   cat(i, " ")
   v <- as.data.frame(v$interest_over_time)
-  trends <- rbind(trends, v)
+  DATASET_2 <- rbind(DATASET_2, v)
 }
 
-view(trends)
+view(DATASET_2)
 
+export(DATASET_2, "Dataset_2.csv")
 
 
 ##More cleaning and merging with each others
 
+DATASET_1 <- import("Dataset_1.csv")
 
-view(DATASET_TOTAL)
+COMPLETE_DATASET <- rbind(DATASET_1, DATASET_2)
 
-DATASET_TOTAL$hits <- as.numeric(as.character(DATASET_TOTAL$hits))
+COMPLETE_DATASET$hits <- as.numeric(as.character(COMPLETE_DATASET$hits))
 
-DATASET_TOTAL <- DATASET_TOTAL[DATASET_TOTAL$hits != 0 & DATASET_TOTAL$hits != 1 
-                               & DATASET_TOTAL$hits != 2 & DATASET_TOTAL$hits != 3
-                               & DATASET_TOTAL$hits != 4 & DATASET_TOTAL$hits != 5, ] 
-
-DATASET_TOTAL <- na.omit(DATASET_TOTAL)
-
-
+COMPLETE_DATASET <- COMPLETE_DATASET[COMPLETE_DATASET$hits != 0 & COMPLETE_DATASET$hits != 1 
+               & COMPLETE_DATASET$hits != 2 & COMPLETE_DATASET$hits != 3
+               & COMPLETE_DATASET$hits != 4 & COMPLETE_DATASET$hits != 5, ] 
+COMPLETE_DATASET <- na.omit(COMPLETE_DATASET)
 
 
-FINAL <- rbind(DATASET_TOTAL, trends)
+COMPLETE_DATASET$hits <- as.numeric(as.character(COMPLETE_DATASET$hits))
 
-FINAL$hits <- as.numeric(as.character(FINAL$hits))
+COMPLETE_DATASET <- COMPLETE_DATASET[COMPLETE_DATASET$hits != 0 & COMPLETE_DATASET$hits != 1 
+                               & COMPLETE_DATASET$hits != 2 & COMPLETE_DATASET$hits != 3
+                               & COMPLETE_DATASET$hits != 4 & COMPLETE_DATASET$hits != 5, ] 
 
-FINAL <- FINAL[FINAL$hits != 0 & FINAL$hits != 1 
-               & FINAL$hits != 2 & FINAL$hits != 3
-               & FINAL$hits != 4 & FINAL$hits != 5, ] 
-FINAL <- na.omit(FINAL)
-
+COMPLETE_DATASET <- na.omit(COMPLETE_DATASET)
 
 
-view(FINAL)
+export(COMPLETE_DATASET,"Complete_dataset.csv")
 
 
 
-####I HAVE TO CLEAN IT FROM MUSSOLINI'S USELESS HITS
+
