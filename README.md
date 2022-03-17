@@ -1,3 +1,4 @@
+![Logo](figs/daps.jpg)
 # Right-wing extremism on Google Italia searches during COVID-19 pandemic
 
 ## Data Access Capstone Project 2022 📍
