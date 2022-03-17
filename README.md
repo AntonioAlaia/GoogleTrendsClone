@@ -47,4 +47,5 @@ JMIR Infodemiology 2021;1(1):e29929](https://infodemiology.jmir.org/2021/1/e2992
 - [Patria Indipendente: Cronache dalla galassia nera](https://www.patriaindipendente.it/idee/copertine/cronache-dalla-galassia-nera/)
 - [Patria Indipendente: Progetto Facebook, lista](https://www.patriaindipendente.it/progetto-facebook/lista_a.html)
 
-#### Research conducted by **Antonio Alaia**
+#### Research conducted by:
+[Antonio Alaia](https://github.com/AntonioAlaia)
