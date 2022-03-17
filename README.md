@@ -15,7 +15,10 @@ The starting list is obtained by scraping an already existing map made by [patri
 The best way to import a dataset with all trending searches on Google is by using [Google Trends](https://trends.google.com/trends/) and, since I'm exclusively using RStudio to work on this project, I employ `gtrendsR` package [(more info...)](https://github.com/PMassicotte/gtrendsR).
 This package allows us to get a dataset with different variables: `geo`, `time`, `keywords` and `onlyInterest` (a boolean that allows to call ONLY the `interest_over_time` or not).
 
-⚠️
+### Test and expected results :chart_with_upwards_trend:
+Once obtained the dataframe, and cleaned it with regexs, I can analyze it and try to answer to two questions:
+- Is there a seasonality of the queries? 
+- Crossing `date` and `hits` variables, will we observe a positive linear trend?
 
 ## Folders labels
 
