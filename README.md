@@ -17,6 +17,15 @@ This package allows us to get a dataset with different variables: `geo`, `time`,
 
 ⚠️
 
+## Folders labels
+
+| Folder | Contents |
+| ----- | -----|
+| makingof | checkpoints and backups |
+| data | datasets |
+| src | scripts |
+| figs | plots and images|
+
 
 ### References:
 
