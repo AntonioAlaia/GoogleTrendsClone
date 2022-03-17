@@ -20,6 +20,7 @@ Once obtained the dataframe, and cleaned it with regexs, I can analyze it and tr
 - Is there a seasonality of the queries? 
 - Crossing `date` and `hits` variables, will we observe a positive linear trend?
 - Overall, how effective can be GoogleTrends on following socio-political movements?
+
 My researches about the topic suggest me that lockdowns and, more generally, COVID-19 Pandemic, has raised internet traffic and extremism has gained popularity among world citizens[^1], therefore it's likely that my plot visualization will show a positive linear trend.
 No prediction could be done for the first question that could be affected by important socio-political events or changes in the lockdown severity.
 Last question is a _secondary quest_ I added for a more personal curiosity, so the answer will be more subjective and won't be answered with a statistical approach but rather with a researcher point of view that is testing Rstudio's package `gtrendsR` and `GoogleTrends` for his socio-political studies! 
