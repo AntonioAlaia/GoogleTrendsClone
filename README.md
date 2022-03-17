@@ -1,8 +1,7 @@
 ![Logo](figs/daps.jpg)
-# Right-wing extremism on Google Italia searches during COVID-19 pandemic
 
-## Data Access Capstone Project 2022 📍
-
+# Data Access Capstone Project 2022 📍
+## Right-wing extremism on Google Italia searches during COVID-19 pandemic
 ### Research question 🔎
 Did COVID-19 pandemic period increased the italian right-wing extremism online presence?
 Did right-wing related keywords spread on Italian Google searches during the pandemic?
