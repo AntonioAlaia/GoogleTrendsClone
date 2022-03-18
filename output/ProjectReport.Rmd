@@ -13,4 +13,204 @@ output:
 ```{r setup, eval=FALSE, include=TRUE}
 ```
 
+# INTRODUCTION
+
+## Questions research
+
+Inspired by a Rovetta A. study published on JMIR, the aim of this project is testing the hypothesis claiming that the volume of researches on Google Italia about right-wing topics, actors, websites and news has raised during the pandemic.
+
+This project tries to answer to few questions:
+
+1. Crossing date and hits variables, will we observe a positive linear trend?
+2. Is there a seasonality of the queries?
+3. Overall, how effective can be GoogleTrends on following socio-political movements?
+
+* My researches about the topic suggest me that lockdowns and, more generally, COVID-19 Pandemic, has raised internet traffic and extremism has gained popularity among world citizens, therefore it's likely that my plot visualization will show a positive linear trend. 
+
+* No prediction could be made for the first question, since that the answer could be affected by important socio-political events occurred during the pandemic or even changes in the lockdowns severity. 
+
+* Last question is a secondary quest I added for a more personal curiosity, so the answer will be more subjective and won't be answered with a statistical approach but rather with a researcher point of view that is testing Rstudio's package gtrendsR and GoogleTrends for his socio-political studies! 
+
+## Data and tool:*gtrendsR*
+
+To test the hypothesis, I create a dataset that contains as many right-wing related keywords as possible. In order to do it, I start from scraped list of organizations and people linked to right-wing parties and then look for related queries trying to identify the trending keywords among users.
+
+The starting list is obtained by scraping an already existing map made by patriaindipendente.it. The best way to import a dataset with all trending searches on Google is by using Google Trends and, since I'm exclusively using RStudio to work on this project, I employ gtrendsR package (more info...). This package allows us to get a dataset with different variables: geo, time, keywords and onlyInterest (a boolean that allows to call ONLY the interest_over_time or not).
+
+```{r eval=FALSE}
+
+library(tidyverse)
+library(rvest)
+library(stringr)
+library(rio)
+
+library(gtrendsR)
+```
+
+
+# Data import and preparation
+
+##First dataset scraping
+
+Firstly I imported the dataset by scraping a website (see the reference) and running the *gtrendsR* API to obtain the complete dataframe of the Google Trends statistics about a keyword.
+After I scraped the list, I had to replace all the keywords inside the gtrendsR argument *keyword*, set the *geo* variable as *"IT"* (Italy) and the period of time chosen for the study: *"2020-01-01 2022-02-28"*.
+
+The first problem I encountered was the fact that the package's argument *keyword* allows just 5 words at a time; to solve that issue, I created a function called *divideR* that allows me to divide the list in several groups of 5 so that I could automatically run one group of five at the time.
+
+```{r,eval=FALSE}
+
+
+divideR <- function(x,n) split(x, cut(seq_along(x), n, labels = FALSE)) 
+
+dvd_listaNera <- divideR(scrap_listaNera, 7)
+
+test1_listaNera <- gtrends(keyword = dvd_listaNera$'1', 
+                           geo = "IT",
+                           time = "2020-01-01 2022-02-28"
+)
+test2_listaNera <- gtrends(keyword = dvd_listaNera$'2',
+                           geo = "IT",
+                           time = "2020-01-01 2022-02-28"
+)
+test3_listaNera <- gtrends(keyword = dvd_listaNera$'3',
+                           geo = "IT",
+                           time = "2020-01-01 2022-02-28"
+)
+test4_listaNera <- gtrends(keyword = dvd_listaNera$'4',
+                           geo = "IT",
+                           time = "2020-01-01 2022-02-28"
+)
+test5_listaNera <- gtrends(keyword = dvd_listaNera$'5',
+                           geo = "IT",
+                           time = "2020-01-01 2022-02-28"
+)
+test6_listaNera <- gtrends(keyword = dvd_listaNera$'6',
+                           geo = "IT",
+                           time = "2020-01-01 2022-02-28"
+)
+test7_listaNera <- gtrends(keyword = dvd_listaNera$'7',
+                           geo = "IT",
+                           time = "2020-01-01 2022-02-28"
+)
+test8_listaNera <- gtrends(keyword = c("8chan","8kun","pillola rossa","olocausto italiano","grande sostituzione"),
+                           geo = "IT",
+                           time = "2020-01-01 2022-02-28"
+)
+
+```
+
+After that, to enlarge my dataset, and to recreate the environment of a right-wing user that surfs the Internet binge-searching the related topics that the Google algorithm provides him/her, I create a first dataframe with the *related queries* that *gtrendsR* package found.
+
+```{r, eval=F}
+list_1 <- test1_listaNera$related_queries$value
+list_2 <- test2_listaNera$related_queries$value
+list_3 <- test3_listaNera$related_queries$value
+list_4 <- test4_listaNera$related_queries$value
+list_5 <- test5_listaNera$related_queries$value
+list_6 <- test6_listaNera$related_queries$value
+list_7 <- test7_listaNera$related_queries$value
+
+LIST <- c(list_1, list_2, list_3,list_4,list_5,list_6,list_7)
+
+DATASET <- unique(LIST)
+DATASET <- DATASET[-c(2,3,6,32,39,41,44,46,48,49,57,58,61,64:110)]
+```
+
+After some cleanings, I had my first list of *queries*.
+Then, I runned again *gtrendsR* but this time I only asked for *interest_over_time* by adding the argument *interestOnly=T* 
+
+```{r, eval=F}
+
+DATASET <- divideR(DATASET, 10)
+
+
+group_1_onlytime <- gtrends(keyword = DATASET$'1',
+                            geo = "IT",
+                            time = "2020-01-01 2022-02-28",
+                            onlyInterest = TRUE
+                            
+)
+
+group_2_onlytime <- gtrends(keyword = DATASET$'2',
+                            geo = "IT",
+                            time = "2020-01-01 2022-02-28",
+                            onlyInterest = TRUE
+                            
+)
+
+group_3_onlytime <- gtrends(keyword = DATASET$'3',
+                            geo = "IT",
+                            time = "2020-01-01 2022-02-28",
+                            onlyInterest = TRUE
+                            
+)
+
+group_4_onlytime <- gtrends(keyword = DATASET$'4',
+                            geo = "IT",
+                            time = "2020-01-01 2022-02-28",
+                            onlyInterest = TRUE
+                            
+)
+
+group_5_onlytime <- gtrends(keyword = DATASET$'5',
+                            geo = "IT",
+                            time = "2020-01-01 2022-02-28",
+                            onlyInterest = TRUE
+                            
+)
+
+group_6_onlytime <- gtrends(keyword = DATASET$'6',
+                            geo = "IT",
+                            time = "2020-01-01 2022-02-28",
+                            onlyInterest = TRUE
+                            
+)
+
+group_7_onlytime <- gtrends(keyword = DATASET$'7',
+                            geo = "IT",
+                            time = "2020-01-01 2022-02-28",
+                            onlyInterest = TRUE
+                            
+)
+group_8_onlytime <- gtrends(keyword = DATASET$'8',
+                            geo = "IT",
+                            time = "2020-01-01 2022-02-28",
+                            onlyInterest = TRUE
+                            
+)
+
+group_9_onlytime <- gtrends(keyword = DATASET$'9',
+                            geo = "IT",
+                            time = "2020-01-01 2022-02-28",
+                            onlyInterest = TRUE
+                            
+)
+
+group_10_onlytime <- gtrends(keyword = DATASET$'10',
+                             geo = "IT",
+                             time = "2020-01-01 2022-02-28",
+                             onlyInterest = TRUE
+                             
+)
+
+group_data1 <- as.data.frame(group_1_onlytime$interest_over_time)
+group_data2 <- as.data.frame(group_2_onlytime$interest_over_time)
+group_data3 <- as.data.frame(group_3_onlytime$interest_over_time)
+group_data4 <- as.data.frame(group_4_onlytime$interest_over_time)
+group_data5 <- as.data.frame(group_5_onlytime$interest_over_time)
+group_data6 <- as.data.frame(group_6_onlytime$interest_over_time)
+group_data7 <- as.data.frame(group_7_onlytime$interest_over_time)
+group_data8 <- as.data.frame(test8_listaNera$interest_over_time)
+group_data8.2 <-  as.data.frame(group_8_onlytime$interest_over_time)
+group_data.9 <-  as.data.frame(group_9_onlytime$interest_over_time)
+group_data.10 <-  as.data.frame(group_10_onlytime$interest_over_time) 
+
+DATASET_1 <- rbind(group_data1, group_data2, group_data3, group_data4, group_data5,
+                       group_data6, group_data7, group_data8, group_data8.2, group_data.9, group_data.10)
+
+
+export(DATASET_1, "Dataset_1.csv")
+```
+
+
 
