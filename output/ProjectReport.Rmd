@@ -19,21 +19,21 @@ output:
 
 Inspired by a Rovetta A. study published on JMIR, the aim of this project is testing the hypothesis claiming that the volume of researches on Google Italia about right-wing topics, actors, websites and news has raised during the pandemic.
 
-This project tries to answer to few questions:
+This project tries to answer a few questions:
 
 1. Crossing date and hits variables, will we observe a positive linear trend?
-2. Is there a seasonality of the queries?
-3. Overall, how effective can be GoogleTrends on following socio-political movements?
+2. Is there a seasonality to the queries?
+3. Overall, how effective can be Google Trends on following socio-political movements?
 
-* My researches about the topic suggest me that lockdowns and, more generally, COVID-19 Pandemic, has raised internet traffic and extremism has gained popularity among world citizens, therefore it's likely that my plot visualization will show a positive linear trend. 
+* My research about the topic suggests me that lockdown and, more generally, COVID-19 Pandemic, have raised internet traffic and extremism has gained popularity among world citizens, therefore it's likely that my plot visualization will show a positive linear trend. 
 
 * No prediction could be made for the first question, since that the answer could be affected by important socio-political events occurred during the pandemic or even changes in the lockdowns severity. 
 
-* Last question is a secondary quest I added for a more personal curiosity, so the answer will be more subjective and won't be answered with a statistical approach but rather with a researcher point of view that is testing Rstudio's package gtrendsR and GoogleTrends for his socio-political studies! 
+* Last question is a secondary quest I added for a more personal curiosity, so the answer will be more subjective and won't be answered with a statistical approach but rather with a researcher point of view that is testing RStudio's package *gtrendsR* and GoogleTrends for my socio-political studies! 
 
 ## Data and tool:*gtrendsR*
 
-To test the hypothesis, I create a dataset that contains as many right-wing related keywords as possible. In order to do it, I start from scraped list of organizations and people linked to right-wing parties and then look for related queries trying to identify the trending keywords among users.
+To test the hypotheses, I create a dataset that contains as many right-wing related keywords as possible. In order to do it, I start from a scraped list of organizations and people linked to right-wing parties and then look for related queries trying to identify the trending keywords among users.
 
 The starting list is obtained by scraping an already existing map made by patriaindipendente.it. The best way to import a dataset with all trending searches on Google is by using Google Trends and, since I'm exclusively using RStudio to work on this project, I employ gtrendsR package (more info...). This package allows us to get a dataset with different variables: geo, time, keywords and onlyInterest (a boolean that allows to call ONLY the interest_over_time or not).
 
@@ -107,7 +107,7 @@ test8_listaNera <- gtrends(keyword = c("8chan","8kun","pillola rossa","olocausto
 
 ```
 
-After that, to enlarge my dataset, and to recreate the environment of a right-wing user that surfs the Internet binge-searching the related topics that the Google algorithm provides him/her, I create a first dataframe with the *related queries* that *gtrendsR* package found.
+After that, to enlarge my dataset, and to recreate the environment of a right-wing user that surfs the Internet binge-searching the related topics that the Google algorithm provides them, I create a first dataframe with the *related queries* that *gtrendsR* package found.
 
 ```{r, eval=F}
 list_1 <- test1_listaNera$related_queries$value
@@ -237,7 +237,7 @@ For the sake of the next regression, I had to cut all the values that fall below
 
 # TEST AND VISUALIZATION
 
-## Is there a seasonality of the queries?
+## Is there a seasonality to the queries?
 
 Having the full dataset for testing my hypothesis, I started with the first: is there a seasonality of the queries?
 Having the opportunity to cross *hits* that it's a value that express the level of popularity of the term; when it's 100 is the peak of popularity, whilst a value of 50 means that the term is half as popular. 
@@ -245,7 +245,7 @@ Scores of 0 mean that a sufficient amount of data was not available for the sele
 
 To answer the first question, I did a density plot with *ggplot2*
 
-```{r, eval= TRUE}
+```{r, eval= TRUE, warning=FALSE}
 
 COMPLETE_DATASET_regex <- import("Complete_dataset(cleanedREGEXS).csv")
 
@@ -253,7 +253,7 @@ COMPLETE_DATASET_regex <- import("Complete_dataset(cleanedREGEXS).csv")
 density_plot <- ggplot(COMPLETE_DATASET_regex, aes(x=date, y=hits) ) +
   stat_density_2d(aes(fill = ..density..), geom = "raster", contour = FALSE) +
   scale_fill_distiller(palette=4, direction=1) +
-  scale_x_datetime(date_breaks = "3 months") +
+  scale_x_datetime(date_breaks = "6 months") +
   scale_y_continuous(expand = c(0, 0)) +
   theme(
     legend.position='none'
@@ -265,8 +265,6 @@ density_plot
 
 As we can see, the plot shows that the first peak has been reached during the summer of 2020, between June and August 2020, while the seconds occurred between August and October 2021.
 Therefore, even if there isn't a precise pattern that we can notice and can helps us making a prediction model, we can observe that the trending occurred just once a year; furthermore we can spot a little "cloud" during January-February 2021 that indicate a cluster of very trending queries.
-
-
 
 ## Crossing date and hits: a positive linear trend?
 
