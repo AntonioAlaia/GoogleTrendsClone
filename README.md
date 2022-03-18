@@ -2,7 +2,7 @@
 
 # Data Access Capstone Project 2022 📍
 ## Right-wing queries on Google Italia during COVID-19 pandemic
-### Research question 🔎
+### Research questions 🔎
 Did COVID-19 pandemic period increased the italian right-wing online presence?
 Did right-wing related keywords spread on Italian Google searches during the pandemic?
 
