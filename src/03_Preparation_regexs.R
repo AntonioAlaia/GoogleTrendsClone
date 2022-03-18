@@ -29,7 +29,7 @@ stormfront <- read_html(here::here("Stormfront.html")) %>%
 view(stormfront)
 
 
-##Some manual cleaning, sigh
+##Some manual cleaning
 
 stormfront <- c("Der Strumer in italiano", "ebrei nemico occulto", "giudeo bolscevismo","piano giudaico massonico","internazionale ebraica",
                 "der ewidge jude","forces occultes 1943","suss l’ebreo ","banche ebraiche sovietici","ebreo lenin mente","questione ebraica","truffatori ebrei",
@@ -44,18 +44,23 @@ stormfront <- c("Der Strumer in italiano", "ebrei nemico occulto", "giudeo bolsc
 
 stormfront[1]
 
+stormfrontScrap <- as.data.frame(stormfront)
 ##GTRENDS
 
 DATASET_3 <- vector()
 v <- vector()
 
 for (i in 1:108) {
-  tryCatch({v <- gtrendsR::gtrends(keyword = stormfront[i], geo = "IT", time = "2020-01-01 2022-02-28")},
+  tryCatch({v <- gtrendsR::gtrends(keyword = stormfront[i], geo = "IT", time = "2020-01-01 2022-02-28", onlyInterest=T)},
            error = function(e){})
   cat(i, " ")
-  v <- as.data.frame(v$related_queries)
+  v <- as.data.frame(v$interest_over_time)
   DATASET_3 <- rbind(DATASET_3, v)
 }
 
 view(DATASET_3)
 
+
+export(stormfrontScrap, "ScrapStormfront.csv")
+
+#Doesn't give many answers, and I'm gonna explain it!
