@@ -26,6 +26,7 @@ No prediction could be made for the first question, since that the answer could 
 Last question is a _secondary quest_ I added for a more personal curiosity[^2], so the answer will be more subjective and won't be answered with a statistical approach but rather with a researcher point of view that is testing Rstudio's package `gtrendsR` and `GoogleTrends` for his socio-political studies! :v:
 
 
+![Logo](figs/BlackCloud.png)
 
 ## Folders labels
 
