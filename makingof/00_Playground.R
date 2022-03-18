@@ -69,11 +69,3 @@ plot(mask)
 bitcoin <- gtrends(keyword = key, time = "today 12-m") 
 
 plot(bitcoin)
-
-key <- "aaa"
-
-/////
-  
-  
-  download.file(url = "https://www.imdb.com/title/tt0096697/episodes?season=32", 
-                destfile = here::here("season_32.html"))

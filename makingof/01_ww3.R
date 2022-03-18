@@ -30,4 +30,3 @@ plot(Russian)
 
 try_geo <- gtrendsR::gtrends(keyword = "milano", geo = "IT", time = "all", onlyInterest = T)
 
-try_geo
