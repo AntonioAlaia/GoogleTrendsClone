@@ -1,7 +1,7 @@
 ---
-title: "YouTube communication of Italian political parties"
-author: "Maria Ascolese"
-date: "March 11, 2022"
+title: "Data Acces Capstone: Google Trends Project"
+author: "Antonio Alaia"
+date: "March 17, 2022"
 output:
   pdf_document:
     toc: true
@@ -13,4 +13,4 @@ output:
 ```{r setup, eval=FALSE, include=TRUE}
 ```
 
-Prova ciao
+
