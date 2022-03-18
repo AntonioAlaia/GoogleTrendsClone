@@ -2,7 +2,7 @@
 
 # Data Access Capstone Project 2022 📍
 ## Right-wing queries on Google Italia during COVID-19 pandemic
-### Research question 🔎
+### Research questions 🔎
 Did COVID-19 pandemic period increased the italian right-wing online presence?
 Did right-wing related keywords spread on Italian Google searches during the pandemic?
 
@@ -25,7 +25,8 @@ My researches about the topic suggest me that lockdowns and, more generally, COV
 No prediction could be made for the first question, since that the answer could be affected by important socio-political events occurred during the pandemic or even changes in the lockdowns severity.
 Last question is a _secondary quest_ I added for a more personal curiosity[^2], so the answer will be more subjective and won't be answered with a statistical approach but rather with a researcher point of view that is testing Rstudio's package `gtrendsR` and `GoogleTrends` for his socio-political studies! :v:
 
-
+### The Right-Wing Galaxy:
+![Logo](figs/BlackCloud.png)
 
 ## Folders labels
 
