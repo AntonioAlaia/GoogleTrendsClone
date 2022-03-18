@@ -23,7 +23,7 @@ Once obtained the dataframe, and cleaned it with regexs, I can analyze it and tr
 
 My researches about the topic suggest me that lockdowns and, more generally, COVID-19 Pandemic, has raised internet traffic and extremism has gained popularity among world citizens[^1], therefore it's likely that my plot visualization will show a positive linear trend.
 No prediction could be made for the first question, since that the answer could be affected by important socio-political events occurred during the pandemic or even changes in the lockdowns severity.
-Last question is a _secondary quest_ I added for a more personal curiosity, so the answer will be more subjective and won't be answered with a statistical approach but rather with a researcher point of view that is testing Rstudio's package `gtrendsR` and `GoogleTrends` for his socio-political studies! :v:
+Last question is a _secondary quest_ I added for a more personal curiosity[^2], so the answer will be more subjective and won't be answered with a statistical approach but rather with a researcher point of view that is testing Rstudio's package `gtrendsR` and `GoogleTrends` for his socio-political studies! :v:
 
 
 
@@ -34,8 +34,8 @@ Last question is a _secondary quest_ I added for a more personal curiosity, so t
 | makingof | checkpoints and backups |
 | data | datasets |
 | src | scripts |
-| figs | plots and images|
-
+| figs | plots and images |
+| output | reports (pdf/Rmd) 
 
 ### References:
 
@@ -51,3 +51,4 @@ JMIR Infodemiology 2021;1(1):e29929](https://infodemiology.jmir.org/2021/1/e2992
 [Antonio Alaia](https://github.com/AntonioAlaia)
 
 [^1]:[Singh K. "Effect of COVID-19 on Violent Extremism and Terrorism in Digital Spaces", Centre for Air Power Studies (CAPS), December 2020](https://d1wqtxts1xzle7.cloudfront.net/65213938/Effect_of_Covid_19-with-cover-page-v2.pdf?Expires=1646486122&Signature=ZYLDbbKK-Ll-nEXxFveOmKMIecccuQ4S3zPiARtLSXyFPeT3mCx7UlbivWH3erJMqS32hoEXpaCfwYhMizVLB4n2~HpZzYND84L8iHTXjYPeSiHgVpBItvSyJz25nVt4LSJ2z0JN71e2zIV-qnizrldn-flDz3b5gXcSd-mcUK1D5SRuLzeHOmHDvnlWGgDZcg1Yl049PWVCPPMRl45AF44vLOob6CarcsQV1Mava0rrM-6rutrZIcAViaMbuNHegV8aS~VYzNL772iQT9fig86YsHu54H8JM1NX4xZ~Pi5UlarxDbmSIF8GMSu6jY5JpTCxni2cTlYx7jvo5jVrfw__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA)
+[^2]:[Patria Indipendente: Cronache dalla galassia nera](https://www.patriaindipendente.it/idee/copertine/cronache-dalla-galassia-nera/)
