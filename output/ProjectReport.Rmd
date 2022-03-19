@@ -285,3 +285,48 @@ linear_plot
 It's clear that, even if I removed all the *hits* below a certain value, the majority of the queries is condensed in at the bottom of the plot and, even if the linear trend shows a slight negative slope, the results it's not statistically significant. 
 
 # Conclusion and personal considerations
+
+## Results comment
+
+Although the two peaks spotted while testing the presence of a seasonality about the queries, eventually I had to conclude that we can't reject the null hypotheses for both questions therefore our two alternative hypotheses are rejected since the results are statistically irrelevant.
+
+There are several critical issues in my project, starting from the richness of the data to the statistical methods applied for testing the hypotheses that could be implemented with further studies about the topic and the tools involved.
+For these reason, I would rather focus on my *journey* and the impressions I had during my capstone research and the skills/tools involved. That's why I wrote the next and last paragraph.
+
+## Third question research: opinion about *gtrendsR* and Google Trends
+
+When I started my project I asked myself: I've always wondered if Google Trends could be used to observe mass opinion and its shifting and I started looking for an API so I found *gtrendsR*.
+Given that I had just learnt to scrape from websites, I decided to enter the black galaxy of right-wing forums and social pages to obtain the largest dataframe possibile about slogans, topic, recurring keywords related to extreme right parties, organizations and communities.
+For example, I decided to scrap from Stormfront,a famous forum populated by right-sympathizers. 
+
+```{r}
+
+stormfront <- read_html(here::here("Stormfront.html")) %>% 
+  html_elements(css = "#posts .alt1 a") %>% 
+  html_text(trim = TRUE)
+view(stormfront)
+
+stormfront <- c("Der Strumer in italiano", "ebrei nemico occulto", "giudeo bolscevismo","piano giudaico massonico","internazionale ebraica",
+                "der ewidge jude","forces occultes 1943","suss l’ebreo ","banche ebraiche sovietici","ebreo lenin mente","questione ebraica","truffatori ebrei",
+                "movimento omosessuale ebrei","il dividendo dei Rothschilds Waterloo","mario monti ebrei","cospirazione kosher matthew hale","pericolo islam",
+                "contro il filoislamismo","progetto grande califfato","bibbia dell’antislamismo","il pericolo giallo","negrolandia inferno morti",
+                "difendere identità biologica","diffondere identità razziale","nazionalismo bianco","W.L. Pierce italiano","controllo giudaico mass media",
+                "invasione allogeni","rhodesia paradiso a inferno","11 settembre la verità","critiche globalizzazione","ida magli",
+                "gilberto oneto bugie immigrati","pericolo rom","druido verità piccone", "giorno memoria malattia mentale","lorenzoni scritti essenziali",
+                "protocolli sion falsi","miracolo economico hitler","the colour of crime italiano","rushton razza","aplogruppi chi sono","ebrei e sindrome Laron",
+                "teorie Armand Marie Leroi","verità meticciato","Jared Tayler razza","Genius Seculi","Giacinto auriti guerra sangue","Wissen Macht Frei in italiano",
+                "American Dissident Voices ita","piano giudaico kalergi italiano","savitri devi femminismo nazionalsocialismo")
+
+```
+
+I was very positive about the list I was creating, but then I had to give up because of Google Trends: the API was giving me back results about just the ~5% of the list of keywords due to lack of available data.
+This is one of the most critical issues about my research method, Google Trends is really sensitive and works better with maximum 2 words and preferably *non specific*.
+
+Overall, I can consider myself quite satisfied about my personal progress achieved during this project. Finally I had the chance to try my scraping skills and I found very challenging the fact that I had to face several critical issues solved with regular expressions, new packages, for loops and a lot of data cleaning and preparation.
+
+Despite the scarce results obtained, I believe that this research could be a starting point for further analysis and a nice capstone from which starting my data science and analysis carrier.
+
+
+Antonio Alaia
+
+
