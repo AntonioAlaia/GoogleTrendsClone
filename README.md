@@ -3,27 +3,27 @@
 # Data Access Capstone Project 2022 📍
 ## Right-wing queries on Google Italia during COVID-19 pandemic
 ### Research questions 🔎
-Did COVID-19 pandemic period increased the italian right-wing online presence?
+Did COVID-19 pandemic period increased the italian right-wing online interest?
 Did right-wing related keywords spread on Italian Google searches during the pandemic?
 
-Inspired by a [Rovetta A. study published on JMIR](https://infodemiology.jmir.org/2021/1/e29929/), the aim of this project is testing the hypothesis claiming that the volume of researches on Google Italia about right-wing topics, actors, websites and news has raised during the pandemic.
+Inspired by a [Rovetta A. study published on JMIR](https://infodemiology.jmir.org/2021/1/e29929/), the aim of this project is testing the hypothesis claiming that the volume of queries on Google Italia about right-wing topics, actors, websites and news has raised during the pandemic.
 
 ### Dataset and tools :bookmark_tabs:
 To test the hypothesis, I create a dataset that contains as many right-wing related keywords as possible. In order to do it, I start from scraped list of organizations and people linked to right-wing parties and then look for related queries trying to identify the trending keywords among users.
 
 The starting list is obtained by scraping an already existing map made by [patriaindipendente.it](https://patriaindipendente.it/progetto-facebook/).
-The best way to import a dataset with all trending searches on Google is by using [Google Trends](https://trends.google.com/trends/) and, since I'm exclusively using RStudio to work on this project, I employ `gtrendsR` package [(more info...)](https://github.com/PMassicotte/gtrendsR).
+The best way to import a dataset with all trending queries on Google is by using [Google Trends](https://trends.google.com/trends/) and, since I'm exclusively using RStudio to work on this project, I employ `gtrendsR` package [(more info)](https://github.com/PMassicotte/gtrendsR).
 This package allows us to get a dataset with different variables: `geo`, `time`, `keywords` and `onlyInterest` (a boolean that allows to call ONLY the `interest_over_time` or not).
 
 ### Test and expected results :chart_with_upwards_trend:
-Once obtained the dataframe, and cleaned it with regexs, I can analyze it and try to answer to three questions:
-- Is there a seasonality of the queries? 
+Once obtained the dataframe, and cleaned it with regex, I can analyze it and then try to answer to three questions:
+- Is there a seasonality to the queries? 
 - Crossing `date` and `hits` variables, will we observe a positive linear trend?
-- Overall, how effective can be GoogleTrends on following socio-political movements?
+- Overall, how effective can be Google Trends on following socio-political movements?
 
 My researches about the topic suggest me that lockdowns and, more generally, COVID-19 Pandemic, has raised internet traffic and extremism has gained popularity among world citizens[^1], therefore it's likely that my plot visualization will show a positive linear trend.
-No prediction could be made for the first question, since that the answer could be affected by important socio-political events occurred during the pandemic or even changes in the lockdowns severity.
-Last question is a _secondary quest_ I added for a more personal curiosity[^2], so the answer will be more subjective and won't be answered with a statistical approach but rather with a researcher point of view that is testing Rstudio's package `gtrendsR` and `GoogleTrends` for his socio-political studies! :v:
+No prediction could be made for the first question, since that the answer could be affected by important socio-political events occurred during the pandemic or even changes in the lockdown severity.
+Last question is a _secondary quest_ I added for a more personal curiosity[^2], so the answer will be more subjective and won't be answered with a statistical approach but rather with a researcher point of view that is testing Rstudio's package `gtrendsR` and Google Trends for my socio-political studies! :v:
 
 ### The Right-Wing Galaxy:
 ![Logo](figs/BlackCloud.png)
