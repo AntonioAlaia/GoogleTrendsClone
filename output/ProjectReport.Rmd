@@ -1,5 +1,5 @@
 ---
-title: "Data Acces Capstone: Google Trends Project"
+title: "Data Access Capstone: Google Trends Project"
 author: "Antonio Alaia"
 date: "March 17, 2022"
 output:
@@ -274,9 +274,14 @@ This is one of the most critical issues about my research method, Google Trends 
 
 Overall, I can consider myself quite satisfied about my personal progress achieved during this project. Finally I had the chance to try my scraping skills and I found very challenging the fact that I had to face several critical issues solved with regular expressions, new packages, for loops and a lot of data cleaning and preparation.
 
-Despite the scarce results obtained, I believe that this research could be a starting point for further analysis and a nice capstone from which starting my data science and analysis carrier.
+Despite the scarce results obtained, I believe that this research could be a starting point for further analyses and a good capstone from which starting my data science and analysis carrier.
 
 
 Antonio Alaia
 
+# References
 
+- Rovetta A. "The Impact of COVID-19 on Conspiracy Hypotheses and Risk Perception in Italy: Infodemiological Survey Study Using Google Trends" JMIR Infodemiology 2021;1(1):e29929
+- Davies G., Wu E. & Frank R. "A Witch’s Brew of Grievances: The Potential Effects of COVID-19 on Radicalization to Violent Extremism" Studies in Conflict & Terrorism; Taylor & Francis 1-24, 2021
+- Singh K. "Effect of COVID-19 on Violent Extremism and Terrorism in Digital Spaces", Centre for Air Power Studies (CAPS), December 2020
+- [Patria Indipendente: Cronache dalla galassia nera](https://www.patriaindipendente.it/idee/copertine/cronache-dalla-galassia-nera/)
