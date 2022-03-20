@@ -3,7 +3,7 @@ title: "Data Acces Capstone: Google Trends Project"
 author: "Antonio Alaia"
 date: "March 17, 2022"
 output:
-  pdf_document:
+  html_document:
     toc: true
     toc_depth: 2
     number_sections: true
